@@ -1,0 +1,7 @@
+ddddocr==1.4.7
+matplotlib==3.5.2
+numpy==1.23.0
+opencv_python_headless==4.6.0.66
+pandas==1.4.3
+selenium==4.6.0
+webdriver_manager==3.8.3
