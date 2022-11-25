@@ -17,14 +17,16 @@ class InvoiceAuth:
         # 加载配置
         chrome_options = Options()
         # 不打开浏览器
-        chrome_options.add_argument('--headless')
+        # chrome_options.add_argument('--headless')
         chrome_options.add_argument(
             'user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_0) AppleWebKit/537.36 (KHTML, like Gecko)'
             ' Chrome/84.0.4147.89 Safari/537.36')
         # 取消证书验证
         chrome_options.add_argument('--ignore-certificate-errors')
         self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
-
+        with open('stealth.min.js', 'r') as f:
+            js = f.read()
+        self.driver.execute_cdp_cmd('Page.addScriptToEvaluateOnNewDocument', {'source': js})
         # 最大化窗口
         self.driver.maximize_window()
 
